@@ -1,12 +1,14 @@
 <template>
   <div class="p-8 pb-0">
-    <h1 class="text-4xl font-bold mb-4 text-orange-500">Search Meals by Name</h1>
+    <h1 class="text-4xl font-bold mb-4 text-[#2c6ef7]">
+      Search Meals by Name
+    </h1>
   </div>
   <div class="px-8 pb-3">
     <input
       type="text"
       v-model="keyword"
-      class="rounded border-2 bg-white border-gray-200 focus:ring-orange-500 focus:border-orange-500 w-full"
+      class="rounded border-2 bg-white border-gray-200 focus:ring-[#2c6ef7] focus:border-[#2c6ef7] w-full"
       placeholder="Search for Meals"
       @change="searchMeals"
     />
@@ -17,10 +19,10 @@
 
 <script setup>
 import { computed } from "@vue/reactivity";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import store from "../store";
-import Meals from '../components/Meals.vue'
+import Meals from "../components/Meals.vue";
 
 const route = useRoute();
 const keyword = ref("");
@@ -35,9 +37,15 @@ function searchMeals() {
 }
 
 onMounted(() => {
-  keyword.value = route.params.name
+  keyword.value = route.params.name;
   if (keyword.value) {
-    searchMeals()
+    searchMeals();
   }
-})
+});
+// continuously check search parameters.
+watch(keyword, (newKeyword) => {
+  if (newKeyword || !newKeyword) { // Check if keyword is empty or '' and backward words search
+    searchMeals();
+  }
+});
 </script>
