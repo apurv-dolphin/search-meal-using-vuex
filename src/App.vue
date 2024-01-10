@@ -1,31 +1,31 @@
 <template>
-    <div
-      v-if="showPopup"
-      class="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-75 z-50"
-    ></div>
-    <!-- Advertisement Popup -->
-    <div
-      class="fixed inset-0 flex justify-center items-center z-50"
-      v-if="showPopup"
-    >
-      <div class="bg-white rounded-lg p-8 max-w-md">
-        <h2 class="text-2xl font-semibold mb-4">Discover New Recipes!</h2>
-        <p class="text-gray-700 mb-6">
-          Check out our latest collection of mouthwatering recipes for foodies.
-        </p>
-        <button
-          class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-md"
-        >
-          Explore Now
-        </button>
-        <button
-          class="mt-2 ml-3 bg-red-600 hover:bg-[#f43f5e] text-white text-sm font-semibold py-2 px-4 rounded-md"
-          @click="closePopup"
-        >
-          Close
-        </button>
-      </div>
+  <div
+    v-if="showPopup"
+    class="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-75 z-50"
+  ></div>
+  <!-- Advertisement Popup -->
+  <div
+    class="fixed inset-0 flex justify-center items-center z-50"
+    v-if="showPopup"
+  >
+    <div class="bg-white rounded-lg p-8 max-w-md">
+      <h2 class="text-2xl font-semibold mb-4">Discover New Recipes!</h2>
+      <p class="text-gray-700 mb-6">
+        Check out our latest collection of mouthwatering recipes for foodies.
+      </p>
+      <button
+        class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-md"
+      >
+        Explore Now
+      </button>
+      <button
+        class="mt-2 ml-3 bg-red-600 hover:bg-[#f43f5e] text-white text-sm font-semibold py-2 px-4 rounded-md"
+        @click="closePopup"
+      >
+        Close
+      </button>
     </div>
+  </div>
   <router-view />
 </template>
 
