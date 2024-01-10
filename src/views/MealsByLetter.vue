@@ -28,10 +28,10 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const meals = computed(() => store.state.mealsByLetter);
 
 watch(route, () => {
-  store.dispatch("searchMealsByLetter", route.params.letter);
+    store.dispatch("searchMealsByLetter", route.params.letter);
 });
 
 onMounted(() => {
-  store.dispatch("searchMealsByLetter", route.params.letter);
+    store.dispatch("searchMealsByLetter", route.params.letter);
 });
 </script>

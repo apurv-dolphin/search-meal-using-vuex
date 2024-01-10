@@ -13,9 +13,9 @@
       <a
         href="#"
         @click.prevent="openIngredient(ingredient)"
-        v-for="ingredient of computedIngredients"
+        v-for="ingredient of sortedIngredients"
         :key="ingredient.idIngredient"
-        class="block bg-white rounded p-3 mb-3 shadow hover:bg-[#2c6ef7] hover:text-white"
+        class="block bg-white rounded p-3 mb-3 shadow hover:bg-[#0ea5e9] hover:text-white hover:scale-105"
       >
         <h3 class="text-2xl font-bold mb-2">{{ ingredient.strIngredient }}</h3>
       </a>
@@ -33,9 +33,15 @@ import store from "../store";
 const router = useRouter();
 const keyword = ref("");
 const ingredients = ref([]);
-const computedIngredients = computed(() => {
+const sortedIngredients = computed(() => {
   if (!computedIngredients) return ingredients;
-  return ingredients.value.filter((i) =>
+  return ingredients.value.sort((a, b) =>
+    a.strIngredient.localeCompare(b.strIngredient)
+  );
+});
+const computedIngredients = computed(() => {
+  if (!computedIngredients) return sortedIngredients;
+  return sortedIngredients.value.filter((i) =>
     i.strIngredient.toLowerCase().includes(keyword.value.toLowerCase())
   );
 });
@@ -51,6 +57,9 @@ function openIngredient(ingredient) {
 onMounted(() => {
   axiosClient.get("list.php?i=list").then(({ data }) => {
     ingredients.value = data.meals;
+    ingredients.value.sort((a, b) =>
+      a.strIngredient.localeCompare(b.strIngredient)
+    );
   });
 });
 </script>
