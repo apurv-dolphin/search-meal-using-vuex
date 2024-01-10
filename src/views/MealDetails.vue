@@ -9,7 +9,7 @@
       />
     </div>
     <div class="p-4">
-      <h1 class="text-2xl font-bold mb-4">Dark Mode Toggle</h1>
+      <h1 class="text-2xl font-bold mb-4">Dark Mode Toggle data</h1>
 
       <!-- Dark Mode Toggle Switch -->
       <div class="relative inline-block w-10 align-middle">
