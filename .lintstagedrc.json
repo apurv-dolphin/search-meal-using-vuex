@@ -1,16 +1,25 @@
 {
     "*.ts": [
-        "prettier --write"
+        "prettier --write",
+        "eslint"
     ],
     "*.js": [
-        "prettier --write"
+        "prettier --write",
+        "eslint"
     ],
     "*.vue": [
-        "prettier --write"
+        "prettier --write",
+        "eslint"
     ],
     "*.html": [
         "eslint",
         "prettier --write"
     ],
-    "*.scss": "prettier --write"
+    "*.scss": [
+        "prettier --write",
+        "stylelint"
+    ],
+    "*.{ts,js,vue,html,scss}": [
+        "git diff --exit-code"
+    ]
 }
