@@ -19,7 +19,7 @@
           class="dark:bg-gray-600 dark:checked:bg-[#2c6ef7] cursor-pointer"
           v-model="isDarkMode"
         />
-                                                                    <div :class="{ 'text-red-500': isDarkMode }">Apurv</div>
+        <div :class="{ 'text-red-500': isDarkMode }>Apurv</div>
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 text-lg py-2">
